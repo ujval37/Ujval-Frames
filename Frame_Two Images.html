@@ -1,35 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farcaster Frame Example</title>
-    <meta name="og:image" content="https://fc-dev-call.replit.app/image"/>
-    <meta name="fc:frame" content="vNext">
-    <meta name="fc:frame:image" content="https://fc-dev-call.replit.app/image"/>
-    <meta name="fc:frame:post_url" content="https://ujval-frames-46mr-pju4ycptz-ujval37s-projects.vercel.app/"/>
-</head>
-<body>
-    <div id="frameContainer" style="width: 600px; height: 400px;"> <!-- Set frame size here -->
-        <div>
-            <button onclick="loadImage('https://f47nke5yr6lcihwab5nusivmqv3zwexrs5e66kd5f52vesgwwrqq.arweave.net/Lz7VE7iPliQewA9bSSKshXebEvGXSe8ofS91UkjWtGE')">Evening Image</button>
-            <button onclick="loadImage('https://uh3jufpsrowj3do43wphdpoln5wxtgaulaooqromqfg2izldrx4a.arweave.net/ofaaFfKLrJ2N3N2ecb3Lb215mBRYHOhFzIFNpGVjjfg')">Morning Image</button>
-        </div>
-        <div id="imageContainer"></div>
-    </div>
-
-    <script>
-        function loadImage(url) {
-            var imageContainer = document.getElementById("imageContainer");
-            imageContainer.innerHTML = ""; // Clear previous image
-
-            var imageElement = document.createElement("img");
-            imageElement.src = url;
-            imageElement.style.maxWidth = "100%"; // Ensure image fits within container
-            imageElement.style.maxHeight = "100%"; // Ensure image fits within container
-
-            imageContainer.appendChild(imageElement);
-        }
-    </script>
-</body>
-</html>
+        <HTML>
+        <head>
+            <meta property="og:image" content="https://fc-dev-call.replit.app/image">
+            <meta property="fc:frame" content="vNext">
+            <meta property="fc:frame:image" content="https://fc-dev-call.replit.app/image">
+            <meta property="fc:frame:button:1" content="Spec">
+            <meta property="fc:frame:button:1:action" content="link">
+            <meta property="fc:frame:button:1:target" content="https://warpcast.notion.site/NFT-extended-Open-Graph-Spec-4e350bd8e4c34e3b86e77d58bf1f5575">
+            <meta property="fc:frame:button:2" content="Image">
+            <meta property="fc:frame:button:2:action" content="link">
+            <meta property="fc:frame:button:2:target" content="https://fc-dev-call.replit.app/image">
+            <meta property="fc:frame:button:3" content="Frame Validator">
+            <meta property="fc:frame:button:3:action" content="link">
+            <meta property="fc:frame:button:3:target" content="https://warpcast.com/~/developers/frames">
+            <meta property="fc:frame:button:4" content="Replit">
+            <meta property="fc:frame:button:4:action" content="link">
+            <meta property="fc:frame:button:4:target" content="https://replit.com/@ujvalkumar/UjvalFrame1#index.js">
+        </head>
+        <body>
+            <h1>Welcome to Your Website</h1>
+            <p>This is a simple Node.js app serving HTML meta tags.</p>
+        </body>
+        </html>
