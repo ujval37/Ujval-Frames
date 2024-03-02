@@ -6,42 +6,23 @@ const path = require("path");
 // Create HTTP server
 const server = http.createServer((req, res) => {
   // GET / (Index Route)
-  // Return a frame which renders an image with four redirect buttons
+  // Return the HTML file
   if (req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.write(`
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Farcaster Frame Example</title>
-          <meta name="fc:frame" content="vNext">
-          <meta name="fc:frame:image" content="https://raw.githubusercontent.com/ujval37/Ujval-Frames/main/frame-fc.png">
-      </head>
-      <body>
-          <div id="frameContainer" style="width: 600px; height: 400px;">
-              <div>
-                  <button onclick="window.location.href = 'https://www.farcaster.xyz/'">Farcaster</button>
-                  <button onclick="window.location.href = 'https://www.warpcast.com/'">Warpcast</button>
-                  <button onclick="window.location.href = 'https://docs.farcaster.xyz/'">Farcaster Docs</button>
-                  <button onclick="window.location.href = 'https://www.thehubble.xyz/'">Farcaster Hubble</button>
-              </div>
-          </div>
-      </body>
-      </html>`);
-    res.end();
-  } else if (req.url === "/image") {
-    // GET /image
-    // Return the image used in the image tag
-    const imagePath = path.join(__dirname, "frame-fc.png");
-    const imageStream = fs.createReadStream(imagePath);
-    res.writeHead(200, { "Content-Type": "image/png" });
-    imageStream.pipe(res);
+    const htmlFilePath = path.join(__dirname, "index.html");
+    fs.readFile(htmlFilePath, "utf-8", (err, data) => {
+      if (err) {
+        console.error("Error reading HTML file:", err);
+        res.writeHead(500, { "Content-Type": "text/plain" });
+        res.end("500 Internal Server Error");
+      } else {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(data);
+      }
+    });
   } else {
-    // Catchall 404 Route
+    // For all other requests, return a 404 Not Found error
     res.writeHead(404, { "Content-Type": "text/plain" });
-    res.end("Page not found");
+    res.end("404 Not Found");
   }
 });
 
